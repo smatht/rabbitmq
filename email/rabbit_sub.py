@@ -20,7 +20,7 @@ class Connection:
         parameters = pika.URLParameters(f'amqp://{username}:{password}@{hostname}')
         self.link = pika.BlockingConnection(parameters)
         self.channel = self.link.channel()
-        self.channel.queue_declare(queue=PUB_QUEUE)
+        self.channel.queue_declare(queue=PUB_QUEUE, durable=True)
         self.channel.basic_consume(PUB_QUEUE, self.on_message)
         try:
             self.channel.start_consuming()

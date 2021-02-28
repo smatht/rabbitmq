@@ -1,3 +1,7 @@
+version: '3.8'
+
+# fuente: https://zgadzaj.com/development/docker/docker-compose/containers/rabbitmq
+
 services:
     rabbit.service:
         image: rabbitmq:3-management-alpine
