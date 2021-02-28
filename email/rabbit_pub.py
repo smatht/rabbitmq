@@ -36,6 +36,7 @@ if __name__ == "__main__":
                     body=json.dumps(message, ensure_ascii=False),
                     properties=pika.BasicProperties(
                         delivery_mode=2,  # hacer que el mensaje sea persistente
+                        content_type='application/json'
                     ))
         count += 1
         time.sleep(30)
